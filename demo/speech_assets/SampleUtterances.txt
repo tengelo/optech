@@ -1,7 +1,6 @@
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
-HelloWorldIntent hello
-HelloWorldIntent say hi
-HelloWorldIntent say hi world
-HelloWorldIntent hi
-HelloWorldIntent how are you
+RestroomIntent Where is the restroom?
+RestroomIntent Where is the washroom?
+RestroomIntent Where are the toilets?
+RestroomIntent Can I use the restroom?
+RestroomIntent May I know where the restroom is?
+RestroomIntent Can I please use your restroom?
