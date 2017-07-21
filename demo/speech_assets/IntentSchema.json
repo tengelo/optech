@@ -1,10 +1,47 @@
 {
   "intents": [
     {
+	  "intent": "AMAZON.HelpIntent"
+	},
+	{
       "intent": "RestroomIntent"
     },
-    {
-      "intent": "AMAZON.HelpIntent"
-    }
+	{
+	  "intent": "AMAZON.CancelIntent"
+	},
+	{
+	  "intent": "AMAZON.StopIntent"
+	},
+	{
+	  "intent": "CallIntent"
+	},
+	{
+	  "intent": "ReturnIntent"
+	},
+	{
+	  "intent": "SizeIntent",
+	  "slots": [
+		{
+		  "name": "Item",
+		  "type": "LIST_OF_ITEMS"
+		},
+		{
+		  "name": "Size",
+		  "type": "LIST_OF_SIZES"
+	    }
+	  ]
+	},
+	{
+	  "intent": "RewardIntent"
+	},
+	{
+	  "intent": "SaleIntent"
+	},
+	{
+	  "intent": "YesIntent"
+	},
+	{
+	  "intent": "NoIntent"
+	}
   ]
 }

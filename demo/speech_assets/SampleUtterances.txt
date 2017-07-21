@@ -1,6 +1,15 @@
-RestroomIntent Where is the restroom?
-RestroomIntent Where is the washroom?
-RestroomIntent Where are the toilets?
-RestroomIntent Can I use the restroom?
-RestroomIntent May I know where the restroom is?
-RestroomIntent Can I please use your restroom?
+RestroomIntent Where is the restroom
+RestroomIntent Where is the washroom
+RestroomIntent Where are the toilets
+RestroomIntent where is the bathroom
+CallIntent Call
+CallIntent Call an associate
+ReturnIntent What is the return policy
+SizeIntent Do you have this {Item} in size {Size}
+RewardIntent What is your rewards program
+RewardIntent Do you have a rewards program
+RewardIntent Describe what your rewards program is like
+SaleIntent What kind of sales do you have going on right now
+SaleIntent Are there any sales going on in store
+YesIntent yes
+NoIntent no
