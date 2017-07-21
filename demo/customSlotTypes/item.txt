@@ -1,0 +1,8 @@
+shirt
+pants
+sweater
+dress
+jacket
+coat
+shorts
+shoes
