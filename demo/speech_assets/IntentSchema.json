@@ -42,6 +42,9 @@
 	},
 	{
 	  "intent": "NoIntent"
+	},
+	{
+	  "intent": "PriceIntent"
 	}
   ]
 }

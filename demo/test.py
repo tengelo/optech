@@ -21,7 +21,7 @@ def launch():
 @ask.intent('RestroomIntent')
 def restroom():
     speech_text = 'The restroom is in the back'
-    return statement(speech_text).simple_card('Restroom', speech_text)
+    return question(speech_text).simple_card('Restroom', speech_text)
 
 @ask.intent('AMAZON.HelpIntent')
 def help():
@@ -36,7 +36,7 @@ def call():
 @ask.intent('ReturnIntent')
 def returns():
 	speech_text = 'You can return any item as long as you have the receipt'
-	return statement(speech_text).simple_card('Return Policy',speech_text)
+	return question(speech_text).simple_card('Return Policy',speech_text)
 
 @ask.intent('SizeIntent', mapping={'item':'Item', 'size': 'Size'})
 def size(item,size):
@@ -53,38 +53,40 @@ def size(item,size):
 	
 @ask.intent('YesIntent')
 def yes():
-	if session.attributes.get('question') is None:
+	if session.attributes.get('question') is None or session.attributes.get('question')==0:
 		speech_text='Ask me a question. If you need an associate to help you then say call'
-		return question(speech_text).reprompt(speech_text)
 	elif session.attributes.get('question')==1:
 		speech_text='Calling an associate'
-		return statement(speech_text)
 	elif session.attributes.get('question')==2:
 		item=session.attributes.get('item')
 		size=session.attributes.get('size')
 		speech_text='Ordering a '+item+' in size '+size
-		return statement(speech_text)
+	session.attributes['question']=0
+	return question(speech_text).reprompt(speech_text)
 
 @ask.intent('NoIntent')
 def no():
-	if session.attributes.get('question') is None:
+	if session.attributes.get('question') is None or session.attributes.get('question')==0:
 		speech_text='Ask me a question. If you need an associate to help you then say call'
-		return question(speech_text).reprompt(speech_text)
-	elif session.attributes.get('question')==1:
-		speech_text='Goodbye'
-	elif session.attributes.get('question')==2:		
-		speech_text='Goodbye'
-	return statement(speech_text)
+	elif session.attributes.get('question')==1 or session.attributes.get('question')==2:
+		speech_text='Is there anything else I can help you out with'
+	session.attributes['question']=0
+	return question(speech_text).reprompt(speech_text)
 
 @ask.intent('RewardIntent')
 def reward():
 	speech_text='For every dollar you spend, you earn one point. Every 150 points you earn, you will receive a coupon for $10 off your next purchase.' 
-	return statement(speech_text).simple_card('Rewards Program',speech_text)
+	return question(speech_text).simple_card('Rewards Program',speech_text)
 
 @ask.intent('SaleIntent')
 def sale():
 	speech_text="There is currently a buy one get one free sale on jeans"
-	return statement(speech_text).simple_card('Sales',speech_text)
+	return question(speech_text).simple_card('Sales',speech_text)
+
+@ask.intent('PriceIntent')
+def price():
+	speech_text='Please scan the barcode'
+	return question(speech_text).simple_card('Price',speech_text)
 
 @ask.intent('AMAZON.CancelIntent')
 def cancel():
