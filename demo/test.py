@@ -61,6 +61,8 @@ def yes():
 		item=session.attributes.get('item')
 		size=session.attributes.get('size')
 		speech_text='Ordering a '+item+' in size '+size
+	elif session.attributes.get('question')==3:
+		speech_text='Ask me a question. If you need an associate to help you then say call'
 	session.attributes['question']=0
 	return question(speech_text).reprompt(speech_text)
 
@@ -68,9 +70,13 @@ def yes():
 def no():
 	if session.attributes.get('question') is None or session.attributes.get('question')==0:
 		speech_text='Ask me a question. If you need an associate to help you then say call'
+		session.attributes['question']=0
 	elif session.attributes.get('question')==1 or session.attributes.get('question')==2:
 		speech_text='Is there anything else I can help you out with'
-	session.attributes['question']=0
+		session.attributes['question']=3
+	elif session.attributes.get('question')==3:
+		speech_text='Goodbye'
+		return statement(speech_text)
 	return question(speech_text).reprompt(speech_text)
 
 @ask.intent('RewardIntent')
